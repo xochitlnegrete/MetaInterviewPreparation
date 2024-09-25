@@ -44,7 +44,6 @@ public class BuyAndSellStocksII {
                 .sum();
 
         System.out.println("El máximo beneficio es: " + maxProfit);
-
         /*for (int i = 0; i < prices.length - 1; i++) {
             if (prices[i + 1] > prices[i]) {
                 maxProfit += prices[i + 1] - prices[i];
