@@ -20,10 +20,11 @@ rotate 2 steps to the right: [3,99,-1,-100]
 package xochitl.interview.meta.exercises.leetcode.arrays;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class RotateArray {
     public static void main(String[] args) {
-        rotate2(new int[]{1,2,3,4,5,6,7}, 3);
+        rotate4(new int[]{1,2,3,4,5,6,7}, 3);
     }
 
     public static void rotate(int[] nums, int k) {
@@ -58,6 +59,31 @@ public class RotateArray {
                 i++;
             }
         }while (i != nums.length - k);
+
+        System.out.println(Arrays.toString(output));
+    }
+
+    public static void rotate3(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n; // Asegurarse de que k no exceda n
+
+        // Usamos IntStream para crear un nuevo arreglo rotado
+        int finalK = k;
+        int[] output = IntStream.range(0, n)
+                .map(i -> nums[(i + n - finalK) % n]) // Calculamos el índice rotado
+                .toArray();
+
+        System.out.println(Arrays.toString(output));
+    }
+
+    public static void rotate4(int[] nums, int k) {
+        int n = nums.length;
+        int[] output = new int[n];
+        int startIndex = n - k;
+
+        for (int j = 0; j < n; j++) {
+            output[j] = nums[(startIndex + j) % n];
+        }
 
         System.out.println(Arrays.toString(output));
     }
