@@ -27,6 +27,9 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 
 package xochitl.interview.meta.exercises.leetcode.arrays;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 public class BuyAndSellStocksII {
     public static void main(String[] args) {
         //System.out.println(maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
@@ -36,31 +39,17 @@ public class BuyAndSellStocksII {
     }
 
     public static int maxProfit(int[] prices) {
-        int maxProfit = 0;
-        int possibleBuy = prices[0];
+        int maxProfit = IntStream.range(0, prices.length - 1)
+                .map(i -> prices[i + 1] > prices[i] ? prices[i + 1] - prices[i] : 0)
+                .sum();
 
-        for (int i = 1; i < prices.length; i++) {
-            int possibleSell = prices[i];
-            System.out.println("Possible Buy: " + possibleBuy + " - Possible Sell: " + possibleSell);
-            if(possibleSell > possibleBuy){
-                //Buy
-                int possibleProfit = possibleSell - possibleBuy;
+        System.out.println("El máximo beneficio es: " + maxProfit);
 
-                if(maxProfit < possibleProfit) {
-                    System.out.println("POSSIBLE SELL");
-                    maxProfit = possibleProfit;
-                }
-
-                if(i == prices.length - 1)  {
-                    System.out.println("SELLED");
-                    //i--;
-                }
+        /*for (int i = 0; i < prices.length - 1; i++) {
+            if (prices[i + 1] > prices[i]) {
+                maxProfit += prices[i + 1] - prices[i];
             }
-            else {
-                possibleBuy = prices[i];
-                System.out.println("Desechó venta");
-            }
-        }
+        }*/
 
         return maxProfit;
     }
