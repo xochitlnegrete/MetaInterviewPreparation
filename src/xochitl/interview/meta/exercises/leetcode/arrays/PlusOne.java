@@ -1,7 +1,5 @@
 package xochitl.interview.meta.exercises.leetcode.arrays;
 
-import java.util.ArrayList;
-
 public class PlusOne {
     public static void main(String[] args) {
 
@@ -27,7 +25,7 @@ public class PlusOne {
             }
             i--;
             //if it's the first digit and there's a pending one to add
-            if (i == -1 && flag) {
+            if (i == -1) {
                 int[] result = new int[digits.length + 1];
                 //it needs to add a 1 at left
                 result[0] = 1;
@@ -37,9 +35,7 @@ public class PlusOne {
                 return result;
             }
 
-        } while ((flag));
-
-        return digits;
+        } while (true);
     }
 
     public static int[] plusOne2(int[] digits) {
@@ -57,7 +53,7 @@ public class PlusOne {
 
         // If it comes to here is because all digits are 9 and creates a new array with 1 and the rest are 0's
         int[] result = new int[n + 1];
-        result[0] = 1; // Agregamos un 1 al inicio
+        result[0] = 1; // Added 1 at the beginning
         return result;
     }
 }
