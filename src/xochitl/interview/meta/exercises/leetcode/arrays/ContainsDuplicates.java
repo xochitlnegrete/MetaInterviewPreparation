@@ -2,10 +2,11 @@ package xochitl.interview.meta.exercises.leetcode.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ContainsDuplicates {
     public static void main(String[] args) {
-        System.out.println(containsDuplicate(new int[]{1,2,3,4,5,6,7,}));
+        System.out.println(containsDuplicate(new int[]{1,2,3,4,5,6,7,1}));
     }
 
     public static boolean containsDuplicate(int[] nums) {

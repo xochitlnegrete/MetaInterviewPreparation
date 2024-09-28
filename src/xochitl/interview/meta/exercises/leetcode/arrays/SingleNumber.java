@@ -17,8 +17,9 @@ Output: 1
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
-public class ContainsDuplicates {
+public class SingleNumber {
     public static void main(String[] args) {
         System.out.println(singleNumber(new int[]{1,1,2,2,4}));
     }

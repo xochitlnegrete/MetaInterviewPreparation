@@ -12,10 +12,11 @@ Output: [4,9]
 Explanation: [9,4] is also accepted.
 */package xochitl.interview.meta.exercises.leetcode.arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class ContainsDuplicates {
+public class IntersectionOfTwoArraysII {
     public static void main(String[] args) {
     int[] array = intersect(new int[]{1,1,2,2}, new int[]{2,2});
 
