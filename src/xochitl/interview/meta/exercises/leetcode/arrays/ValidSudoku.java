@@ -42,49 +42,44 @@ Explanation: Same as Example 1, except with the 5 in the top left corner being m
 
 package xochitl.interview.meta.exercises.leetcode.arrays;
 
-import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 public class ValidSudoku {
     public static void main(String[] args) {
-        int[][] board = {
-                {5, 3, 0, 0, 7, 0, 0, 0, 0},
-                {6, 0, 0, 1, 9, 5, 0, 0, 0},
-                {0, 9, 8, 0, 0, 0, 0, 6, 0},
-                {8, 0, 0, 0, 6, 0, 0, 0, 3},
-                {4, 0, 0, 8, 0, 3, 0, 0, 1},
-                {7, 0, 0, 0, 2, 0, 0, 0, 6},
-                {0, 6, 0, 0, 0, 0, 2, 8, 0},
-                {0, 0, 0, 4, 1, 9, 0, 0, 5},
-                {0, 0, 0, 0, 8, 0, 0, 7, 9}
+        char[][] board = {
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
 
-        System.out.println(validSudoku(board));
+        System.out.println(isValidSudoku(board));
     }
 
-    public static boolean validSudoku(int[][] board) {
-        for(int[] row : board)  {
-            if(!validRow(row))   return false;
-            System.out.println();
-        }
+    public static boolean isValidSudoku(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            Set<Character> rows = new HashSet<>();
+            Set<Character> columns = new HashSet<>();
+            Set<Character> cube = new HashSet<>();
 
-        //Missing send to validRow column by column
+            for (int j = 0; j < 9; j++) {
+                if(board[i][j] != '.' && !rows.add(board[i][j]))  return false;
+                if(board[j][i] != '.' && !columns.add(board[j][i]))  return false;
 
-        //Missing send to validRow 3*3 squares
-        return true;
-    }
-
-    public static boolean validRow(int[] row)    {
-        HashSet<Integer> hashSet = new HashSet<>();
-        for (int i : row)   {
-            if(i != 0)  {
-                if(!hashSet.add(i)) {
-                    System.out.println("Ya existe: " + i);
+                int row = 3 * (i / 3);
+                int column = 3 * (i % 3);
+                if(board[row + j / 3][column + j % 3] != '.' && !cube.add(board[row + j / 3][column + j % 3])){
                     return false;
                 }
             }
-            System.out.print(i + " ");
         }
+
         return true;
     }
 }
