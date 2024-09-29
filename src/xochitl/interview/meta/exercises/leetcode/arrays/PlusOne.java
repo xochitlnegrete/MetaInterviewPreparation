@@ -4,6 +4,7 @@ public class PlusOne {
     public static void main(String[] args) {
 
         int[] result = plusOne(new int[]{0});
+        PrintArray.printArray(result);
 
         for (int i : result) {
             System.out.print(i);
