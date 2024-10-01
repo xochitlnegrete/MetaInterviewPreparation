@@ -16,10 +16,7 @@ Input: x = 120
 Output: 21
 * */
 
-package xochitl.interview.meta.exercises.leetcode.arrays;
-
-import java.util.HashSet;
-import java.util.Set;
+package xochitl.interview.meta.exercises.leetcode.strings;
 
 public class ReverseInteger {
     public static void main(String[] args) {
@@ -27,13 +24,12 @@ public class ReverseInteger {
     }
 
     public static int reverse(int num) {
-        int result = 0;
-        while(num > 10) {
+        long result = 0;
+        while(num != 0) {
           result = result * 10 + num % 10;
           num = num / 10;
         }
-        result = result * 10 + num;
 
-        return result;
+        return (result < Integer.MIN_VALUE || result > Integer.MAX_VALUE) ? 0 : (int) result;
     }
 }
