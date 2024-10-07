@@ -41,13 +41,6 @@ public class ValidAnagram {
             }
         }
 
-
-
-        System.out.println(mapS);
-        System.out.println(mapT);
-
-        System.out.println(mapS.equals(mapT));
-
-        return true;
+        return mapS.equals(mapT);
     }
 }

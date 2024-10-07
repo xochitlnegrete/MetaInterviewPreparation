@@ -17,10 +17,10 @@ package xochitl.interview.meta.exercises.leetcode.strings;
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         String[] strs = new String[]{"flower","flow","flight"};
-        System.out.println(longestCommonPrefix(strs);
+        System.out.println(longestCommonPrefix(strs));
     }
 
-    public static int longestCommonPrefix(String[] strs) {
+    public static String longestCommonPrefix(String[] strs) {
         int i = 0;
         int iString = 0;
         String output = "";

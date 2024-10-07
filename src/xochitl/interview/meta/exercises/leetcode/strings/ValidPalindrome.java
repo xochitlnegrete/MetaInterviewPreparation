@@ -27,7 +27,7 @@ public class ValidPalindrome {
         System.out.println(validPalindrome("race a car"));
     }
 
-    public static int validPalindrome(int num) {
+    public static boolean validPalindrome(String s) {
         s = s.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
 
         for (int i = 0; i < s.length() / 2; i++) {

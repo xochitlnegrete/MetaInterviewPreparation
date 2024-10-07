@@ -15,7 +15,7 @@ Explanation: "leeto" did not occur in "leetcode", so we return -1.
 
 package xochitl.interview.meta.exercises.leetcode.strings;
 
-public class ReverseInteger {
+public class ReverseInteger2 {
     public static void main(String[] args) {
         System.out.println(strStr("hello", "ll"));
     }
