@@ -16,16 +16,25 @@ public class RemoveNthNodeFromEndOfList {
     }
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head.next == null)   return head;
-        ListNode current = head;
-
-        while (current != null) {
-            System.out.print(current.val + " ");
-            current = current.next;
+        ListNode dummy = new ListNode(0);  // Nodo ficticio para simplificar el caso donde se elimina el primer nodo
+        dummy.next = head;
+        ListNode first = dummy;
+        ListNode second = dummy;
+        
+        // Mover el puntero `first` n+1 pasos para que mantenga una distancia de `n` del puntero `second`
+        for (int i = 0; i <= n; i++) {
+            first = first.next;
         }
-
-        System.out.println();
-
-        return head;
+        
+        // Mover ambos punteros hasta que `first` llegue al final
+        while (first != null) {
+            first = first.next;
+            second = second.next;
+        }
+        
+        // `second.next` es el nodo a eliminar
+        second.next = second.next.next;
+        
+        return dummy.next;  // Devuelve la cabeza de la lista modificada
     }
 }
